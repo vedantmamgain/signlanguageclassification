@@ -15,4 +15,20 @@
 ## Resources
 
 - https://github.com/dansuh17/deep-learning-roadmap
+- https://stackoverflow.com/questions/40898019/what-is-the-difference-between-a-feature-and-a-label#:~:text=Briefly%2C%20feature%20is%20input%3B%20label,data%20in%20your%20input%20set.&text=Once%20you've%20trained%20your,pet%20type)%20for%20that%20person.
+- https://colab.research.google.com/drive/1F_EWVKa8rbMXi3_fG0w7AtcscFq7Hi7B#forceEdit=true&sandboxMode=true&scrollTo=L_NRXsFOraYa
 - https://github.com/floodsung/Deep-Learning-Papers-Reading-Roadmap
+- https://deeplizard.com/learn/video/fCVuiW9AFzY
+- https://www.freecodecamp.org/learn/machine-learning-with-python/#tensorflow
+- 📕 Module 2: Introduction to TensorFlow - https://colab.research.google.com/drive 1F_EWVKa8rbMXi3_fG0w7AtcscFq7Hi7B#forceEdit=true&sandboxMode=true
+- 📗 Module 3: Core Learning Algorithms - https://colab.research.google.com/drive/15Cyy2H7nT40sGR7TBN5wBvgTd57mVKay#forceEdit=true&sandboxMode=true
+- 📘 Module 4: Neural Networks with TensorFlow - https://colab.research.google.com/dri...​
+- 📙 Module 5: Deep Computer Vision - https://colab.research.google.com/dri...​
+- 📔 Module 6: Natural Language Processing with RNNs - https://colab.research.google.com/dri...​
+- 📒 Module 7: Reinforcement Learning - https://colab.research.google.com/dri...
+- https://www.superdatascience.com/pages/deep-learning
+
+## Questions
+
+- [ ] What if the data doesn't fit our reshape value
+- [ ] Max pooling ,convolution , back propagraiton
