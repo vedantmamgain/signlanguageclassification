@@ -1,7 +1,6 @@
 from pandas import read_csv
 import numpy as np
-import pandas as pd
-
+import csv
 
 def load_file(filepath):
     dataframe = read_csv(filepath, header=None, delimiter=',')
@@ -53,11 +52,13 @@ def main(sign):
         for k in range(0, 39, 2):
             start = arr[p - 1, k]
             end = arr[p - 1, k + 1]
-            final.append(load_rows(start, end, sign, p))
+            final.append(np.array(load_rows(start, end, sign, p)))
             # print(arr[0, k, 0],arr[0, k+1, 0])
-    #check = pd.DataFrame(final)
-    np.savetxt("data.csv",final,delimiter=", ",fmt='% s')
-    #print(final)
+    #writing csv file of the final
+    with open('final.csv', 'w') as f:
+        write = csv.writer(f)
+        write.writerows(final)
+
 
 
 main(61)
