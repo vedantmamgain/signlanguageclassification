@@ -1,5 +1,6 @@
 from pandas import read_csv
 import numpy as np
+import pandas as pd
 import csv
 
 def load_file(filepath):
@@ -20,6 +21,7 @@ def load_subject(sub_idx, sign, start, end, idx1, idx2):
 
 def load_rows(start, end, sign, sub_idx):
     arr = []
+    arr.append(sign)
     # for emg right  3->5
     arr.append(load_subject(sub_idx, sign, start[0], end[0], 3, 5))
     # for accelo right  9->17
@@ -40,25 +42,32 @@ def load_time(sub_idx, sign):
     return load_file(
         str("Dataset/20_sign_language/Start_end_point/ipt_" + "S" + str(sub_idx) + "_RA" + str(sign) + ".csv"))
 
+cols=['Sign', 'Code', 'Age', 'Weight','Name', 'Code', 'Age']
 
+final = []
 def main(sign):
     data = []
     for x in range(1, 5):
         data.append(load_time(x, sign))
     arr = np.array(data)
-    final = []
     # print all the values of the start and end of repetitions person wise
     for p in range(1, 5):
         for k in range(0, 39, 2):
             start = arr[p - 1, k]
             end = arr[p - 1, k + 1]
             final.append(np.array(load_rows(start, end, sign, p)))
-            # print(arr[0, k, 0],arr[0, k+1, 0])
-    #writing csv file of the final
-    with open('final.csv', 'w') as f:
-        write = csv.writer(f)
-        write.writerows(final)
 
 
 
-main(61)
+for p in range(61,81):
+  main(p)
+df=pd.DataFrame(final)
+df.dropna(
+        axis=0,
+        how='any',
+        thresh=None,
+        subset=None,
+        inplace=True
+    )
+df.columns = cols
+df.to_csv('final.csv')
