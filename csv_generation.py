@@ -11,7 +11,7 @@ def load_file(filepath):
 def load_subject(sub_idx, sign, start, end, idx1, idx2):
     start -= 1
     end -= 1
-    filepath = str("Dataset/20_sign_language/" + "S" + str(sub_idx) + "_RA" + str(sign) + ".csv")
+    filepath = str("/content/gdrive/My Drive/Dataset/20_sign_language/" + "S" + str(sub_idx) + "_RA" + str(sign) + ".csv")
     # fix why n rows has an offset of 8
     dataframe = read_csv(filepath, header=None, delimiter=',', skiprows=start, nrows=end - 8,
                          usecols=[*range(idx1, idx2)])
@@ -40,9 +40,24 @@ def load_rows(start, end, sign, sub_idx):
 
 def load_time(sub_idx, sign):
     return load_file(
-        str("Dataset/20_sign_language/Start_end_point/ipt_" + "S" + str(sub_idx) + "_RA" + str(sign) + ".csv"))
+        str("/content/gdrive/My Drive/Dataset/20_sign_language/Start_end_point/ipt_" + "S" + str(sub_idx) + "_RA" + str(sign) + ".csv"))
 
-cols=['Sign', 'Code', 'Age', 'Weight','Name', 'Code', 'Age']
+cols=['Sign', 'EMG-R', 'ACC-R', 'GYRO-R','EMG-L', 'ACC-L', 'GYRO-L']
+
+main_cols=['Sign', 'EMG-R-1','EMG-R-2','EMG-R-3',
+      'ACC-Rx-1','ACC-Ry-1','ACC-Rz-1',
+      'ACC-Rx-2','ACC-Ry-2','ACC-Rz-3',
+      'ACC-Rx-3','ACC-Ry-3','ACC-Rz-3',
+      'GYRO-Rx-1','GYRO-Ry-1','GYRO-Rz-1',
+      'GYRO-Rx-2','GYRO-Ry-2','GYRO-Rz-3',
+      'GYRO-Rx-3','GYRO-Ry-3','GYRO-Rz-3',
+      'EMG-L-1','EMG-L-2','EMG-L-3',
+      'ACC-Lx-1','ACC-Ly-1','ACC-Lz-1',
+      'ACC-Lx-2','ACC-Ly-2','ACC-Lz-3',
+      'ACC-Lx-3','ACC-Ly-3','ACC-Lz-3',
+      'GYRO-Lx-1','GYRO-Ly-1','GYRO-Lz-1',
+      'GYRO-Lx-2','GYRO-Ly-2','GYRO-Lz-3',
+      'GYRO-Lx-3','GYRO-Ly-3','GYRO-Lz-3',]
 
 final = []
 def main(sign):
@@ -59,7 +74,7 @@ def main(sign):
 
 
 
-for p in range(61,81):
+for p in range(61,80):
   main(p)
 df=pd.DataFrame(final)
 df.dropna(
